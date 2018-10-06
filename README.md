@@ -7,7 +7,7 @@ This project contains Apollo setup for MeteorJS Framework
 - MeteorJS
 
 ## Project Structural
-```python
+```bash
 # client folder
 client/
 ├── main.css
