@@ -19,11 +19,13 @@
     "apollo-link-ws": "^1.0.9",
     "apollo-server-express": "^2.1.0",
     "graphql": "^14.0.2",
+    "graphql-subscriptions": "^1.0.0",
     "graphql-tools": "^4.0.0",
     "meteor-node-stubs": "^0.4.1",
     "react": "^16.5.2",
     "react-apollo": "^2.2.4",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "simpl-schema": "^1.5.3"
   },
   "meteor": {
     "mainModule": {

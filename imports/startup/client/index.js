@@ -1,1 +1,1 @@
-export { default } from './apollo-boost';
+export { default } from './apollo-client';

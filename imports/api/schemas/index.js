@@ -1,3 +1,5 @@
-import HelloSchemas from './hello.gql';
+import HelloSchema from './hello.gql';
+import TodoSchema from './todo.gql';
+import RootSchema from './root.gql';
 
-export default [HelloSchemas];
+export default [RootSchema, HelloSchema, TodoSchema];

@@ -1,0 +1,33 @@
+scalar Date
+scalar ObjectId
+
+type Todo {
+  _id: String!
+  title: String!
+  content: String
+  createdAt: Date!
+}
+
+extend type Query {
+  getTodo(id: String!): Todo
+  getTodoList: [Todo]
+}
+
+extend type Mutation {
+  addTodo(
+    title: String!
+    content: String
+  ): Todo
+  removeTodo(
+    id: String!
+  ): Todo
+  updateTodo(
+    id: String!
+    title: String!
+    content: String
+  ): Todo
+}
+
+extend type Subscription {
+  todoAdded: Todo
+}
