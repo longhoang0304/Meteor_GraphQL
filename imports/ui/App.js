@@ -1,30 +1,8 @@
 import React, { Component } from 'react';
-import { Query } from 'react-apollo';
-import helloQuery from '../query/hello.gql';
+import HomePage from './HomePage';
 
-class App extends Component {
-  render() {
-    const { message } = this.props;
-    return (
-      <div>
-        {message}
-      </div>
-    );
-  }
-}
+const App = ({ message }) => (
+  <HomePage />
+);
 
-const QueryApp = () => (
-  <Query
-    query={helloQuery}
-  >
-    {(props) => {
-      const { loading, error, data } = props;
-      if (error) return <App message={error} />
-      if (loading || !data) return <App message="Fetching data" />
-
-      return <App message={data.message} />
-    }}
-  </Query>
-)
-
-export default QueryApp;
+export default App;
