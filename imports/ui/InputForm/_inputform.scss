@@ -1,7 +1,6 @@
 .input-form {
   width: 50%;
   max-width: 500px;
-  min-height: 250px;
   max-height: 80vh;
   margin-top: 25px;
   background: #fff;
@@ -17,20 +16,20 @@
   }
 
   .input-title {
-    height: 15%;
+    height: 25px;
     font-weight: bold;
   }
 
   .input-content {
-    height: 65%;
     resize: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: calc(100% - 50px);
   }
 
 
   .input-save-btn {
     text-align: right;
-    height: 10%;
+    height: 25px;
     width: 100%;
     background: #fff;
     display: flex;

@@ -1,7 +1,7 @@
 import React from 'react'
 
-const TodoItem = ({ title, content, createdAt }) => {(
-  <div className='item'>
+const TodoItem = ({ title, content, createdAt }) => (
+  <div className='todo-item'>
     <div className='item-title'>
       {title}
     </div>
@@ -11,7 +11,10 @@ const TodoItem = ({ title, content, createdAt }) => {(
     <div className='item-date'>
       {createdAt}
     </div>
+    <div className='item-footer'>
+      <div>Delete</div>
+    </div>
   </div>
-)};
+);
 
 export default TodoItem;
