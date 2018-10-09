@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import m from 'moment';
 
 const TodoItem = ({ title, content, createdAt }) => (
   <div className='todo-item'>
@@ -8,11 +9,13 @@ const TodoItem = ({ title, content, createdAt }) => (
     <div className='item-content'>
       {content}
     </div>
-    <div className='item-date'>
-      {createdAt}
-    </div>
     <div className='item-footer'>
-      <div>Delete</div>
+      <div className='item-date'>
+        {m(createdAt).format('ddd, DD MMM YYYY')}
+      </div>
+      <div className='item-delete'>
+        Delete
+      </div>
     </div>
   </div>
 );

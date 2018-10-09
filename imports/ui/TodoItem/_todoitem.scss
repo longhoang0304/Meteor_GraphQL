@@ -1,4 +1,27 @@
 .todo-item {
   background: #fff;
   width: 300px;
+  margin-top: 25px;
+  flex:1 0 auto;
+
+  .item-title, .item-content, .item-footer {
+    padding: 10px;
+  }
+  .item-footer {
+    display: flex;
+    justify-content: space-between
+  }
+  .item-date {
+    font-style: italic;
+    color: #333;
+    font-size: 14px;
+    cursor: default;
+  }
+  .item-delete {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+      transition: 1s ease;
+    }
+  }
 }

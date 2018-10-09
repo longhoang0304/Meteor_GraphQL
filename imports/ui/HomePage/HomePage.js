@@ -34,6 +34,51 @@ const dummyData = [
     content: 'Content 3',
     createdAt: Date.now(),
   },
+  {
+    title: 'Title 1',
+    content: 'Content 1',
+    createdAt: Date.now(),
+  },
+  {
+    title: 'Title 2',
+    content: 'Content 2',
+    createdAt: Date.now(),
+  },
+  {
+    title: 'Title 3',
+    content: 'Content 3',
+    createdAt: Date.now(),
+  },
+  {
+    title: 'Title 1',
+    content: 'Content 1',
+    createdAt: Date.now(),
+  },
+  {
+    title: 'Title 2',
+    content: 'Content 2',
+    createdAt: Date.now(),
+  },
+  {
+    title: 'Title 3',
+    content: 'Content 3',
+    createdAt: Date.now(),
+  },
+  {
+    title: 'Title 1',
+    content: 'Content 1',
+    createdAt: Date.now(),
+  },
+  {
+    title: 'Title 2',
+    content: 'Content 2',
+    createdAt: Date.now(),
+  },
+  {
+    title: 'Title 3',
+    content: 'Content 3',
+    createdAt: Date.now(),
+  },
 ]
 
 const HomePage = () => ([

@@ -4,6 +4,8 @@
   max-height: 80vh;
   margin-top: 25px;
   background: #fff;
+  display: flex;
+  flex-direction: column;
 
   .input-title, .input-content, .input-save-btn {
     width: 100%;
@@ -23,7 +25,7 @@
   .input-content {
     resize: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height: calc(100% - 50px);
+    height: 150px;
   }
 
 
@@ -38,6 +40,13 @@
 
     span {
       display: block;
+      cursor: pointer;
+      color: #000;
+      padding: 10px;
+      &:hover {
+        text-decoration: underline;
+        transition: 1s ease;
+      }
     }
   }
 }
