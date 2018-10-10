@@ -3,10 +3,11 @@
 @import './HomePage/homepage';
 @import './TodoItem/todoitem';
 @import './TodoList/todolist';
+@import './MessageScreen/messagescreen';
 
 html, body, #root {
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   padding: 0px;
   margin: 0px;
   background: #eee;

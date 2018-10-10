@@ -1,18 +1,31 @@
 import React from 'react'
 import { Query } from 'react-apollo';
-import helloQuery from '../query/hello.gql';
+import gql from 'graphql-tag';
 import App from './App';
+import MessageLoader from './MessageScreen';
+
+
+const getTodoList = gql`
+  {
+    getTodoList {
+      _id
+      title
+      content
+      createdAt
+    }
+  }
+`;
 
 const QueryApp = () => (
   <Query
-    query={helloQuery}
+    query={getTodoList}
   >
     {(props) => {
       const { loading, error, data } = props;
-      if (error) return <App message={error} />
-      if (loading || !data) return <App message="Fetching data" />
+      if (error) return <MessageLoader message={error} />;
+      if (loading || !data) return <MessageLoader message="Fetching data" />;
 
-      return <App message={data.message} />
+      return <App todoList={data.getTodoList} />
     }}
   </Query>
 )
