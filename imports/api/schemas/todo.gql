@@ -9,8 +9,8 @@ type Todo {
 }
 
 extend type Query {
-  getTodo(id: String!): Todo
-  getTodoList: [Todo]
+  Todo(id: String!): Todo
+  TodoList: [Todo]
 }
 
 extend type Mutation {

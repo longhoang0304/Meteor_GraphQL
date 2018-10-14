@@ -10,6 +10,7 @@ const TodoList = ({ todoList }) => (
         (e, i) => (
           <TodoItem
             key={i}
+            id={e._id}
             title={e.title}
             content={e.content}
             createdAt={e.createdAt}

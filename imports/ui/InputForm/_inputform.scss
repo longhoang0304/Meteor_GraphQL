@@ -35,10 +35,14 @@
     width: 100%;
     background: #fff;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-
-    span {
+    span.error-msg {
+      color: crimson;
+      font-style: italic;
+    }
+    span.save-btn {
       display: block;
       cursor: pointer;
       color: #000;

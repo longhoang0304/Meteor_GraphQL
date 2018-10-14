@@ -5,7 +5,13 @@
 
   .item-title, .item-content, .item-footer {
     padding: 10px;
+    color: #555;
   }
+
+  .item-title {
+    font-weight: bold;
+  }
+
   .item-footer {
     display: flex;
     justify-content: space-between

@@ -5,9 +5,9 @@ import App from './App';
 import MessageLoader from './MessageScreen';
 
 
-const getTodoList = gql`
+const TodoList = gql`
   {
-    getTodoList {
+    TodoList {
       _id
       title
       content
@@ -18,14 +18,15 @@ const getTodoList = gql`
 
 const QueryApp = () => (
   <Query
-    query={getTodoList}
+    query={TodoList}
+    pollInterval={500}
   >
     {(props) => {
       const { loading, error, data } = props;
       if (error) return <MessageLoader message={error} />;
       if (loading || !data) return <MessageLoader message="Fetching data" />;
 
-      return <App todoList={data.getTodoList} />
+      return <App todoList={data.TodoList} />
     }}
   </Query>
 )

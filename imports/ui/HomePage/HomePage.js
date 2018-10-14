@@ -8,7 +8,7 @@ const HomePage = ({todoList}) => ([
   <div id="main-form" key={2}>
     <InputForm />
   </div>,
-  <TodoList todoList={todoList || []} />
+  <TodoList todoList={todoList || []} key={3}/>
 ]);
 
 export default HomePage;

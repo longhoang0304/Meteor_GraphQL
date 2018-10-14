@@ -2,8 +2,8 @@ import Todo from './todo.collection';
 
 const HelloResolvers = {
   Query: {
-    getTodo: (_, { id }) => Todo.findOne(id),
-    getTodoList: () => Todo.find({}).fetch(),
+    Todo: (_, { id }) => Todo.findOne(id),
+    TodoList: () => Todo.find({}).fetch(),
   },
   Mutation: {
     addTodo: (_, args) => {
