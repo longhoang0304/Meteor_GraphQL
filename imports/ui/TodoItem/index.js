@@ -19,6 +19,7 @@ const DELETE_TODO = gql`
 const TodoItemMutation = (props) => (
   <Mutation
     mutation={DELETE_TODO}
+    refetchQueries={['TodoList']}
   >
     {(deleteTodo, { data }) => (
       <TodoItem

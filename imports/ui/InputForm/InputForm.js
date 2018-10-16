@@ -35,10 +35,22 @@ class InputForm extends PureComponent {
         content,
       }
     });
-    this.setState(() => ({
-      error: '',
-    }));
   }
+
+  componentDidUpdate = (prevProps, prevState) => {
+    const prevData = prevProps.data;
+    const { data } = this.props;
+    if (!data) return;
+    if (prevData.loading && !data.loading) {
+      this.setState(() => ({
+        error: data.error,
+        title: '',
+        content: '',
+      }));
+    }
+  }
+
+
   render() {
     const { title, content, error } = this.state;
 

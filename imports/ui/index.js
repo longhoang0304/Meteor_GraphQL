@@ -6,7 +6,7 @@ import MessageLoader from './MessageScreen';
 
 
 const TodoList = gql`
-  {
+  query TodoList {
     TodoList {
       _id
       title
@@ -19,7 +19,6 @@ const TodoList = gql`
 const QueryApp = () => (
   <Query
     query={TodoList}
-    pollInterval={500}
   >
     {(props) => {
       const { loading, error, data } = props;
