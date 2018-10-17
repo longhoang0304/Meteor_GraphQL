@@ -1,4 +1,5 @@
 import Todo from './todo.collection';
+import { pubsub } from './todo.pubsub';
 
 const HelloResolvers = {
   Query: {
@@ -31,6 +32,12 @@ const HelloResolvers = {
       if (updatedRecords) return Todo.findOne(id);
       return null;
     },
+  },
+  Subscription: {
+    todoAdded: {
+      resolve: (payload) => payload,
+      subscribe: () => pubsub.asyncIterator('todoAdded'),
+    }
   }
 };
 

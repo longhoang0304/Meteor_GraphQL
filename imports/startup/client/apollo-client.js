@@ -7,11 +7,13 @@ import { MeteorAccountsLink } from 'meteor/apollo';
 
 const link = ApolloLink.from([
   new MeteorAccountsLink(),
-  // isSubscription,
-  // new DDPSubscriptionLink(),
-  new HttpLink({
-    url: '/graphql',
-  }),
+  ApolloLink.split(
+    isSubscription,
+    new DDPSubscriptionLink(),
+    new HttpLink({
+      url: '/graphql',
+    }),
+  ),
 ]);
 
 const cache = new InMemoryCache();
