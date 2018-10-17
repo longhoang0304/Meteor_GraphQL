@@ -20,7 +20,7 @@ const ADD_TODO = gql`
 const InputFormMutation = () => (
   <Mutation
     mutation={ADD_TODO}
-    refetchQueries={['TodoList']}
+    // refetchQueries={['TodoList']}
   >
     {(addTodo, data) => (
       <InputForm

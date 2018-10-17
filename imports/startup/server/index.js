@@ -1,25 +1,15 @@
-import { ApolloServer, gql } from 'apollo-server-express'
-import { WebApp } from 'meteor/webapp'
-import { getUser } from 'meteor/apollo'
+import { setup as createApolloServer } from 'meteor/swydo:ddp-apollo';
+import { getUser } from 'meteor/apollo';
+import { makeExecutableSchema } from 'graphql-tools';
 
 import typeDefs from '../../api/schemas'
 import resolvers from '../../api/resolvers'
 
-const server = new ApolloServer({
+const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
-  context: async ({ req }) => ({
-    user: await getUser(req.headers.authorization)
-  })
-})
+});
 
-server.applyMiddleware({
-  app: WebApp.connectHandlers,
-  path: '/graphql'
-})
-
-WebApp.connectHandlers.use('/graphql', (req, res) => {
-  if (req.method === 'GET') {
-    res.end()
-  }
-})
+createApolloServer({
+  schema,
+});

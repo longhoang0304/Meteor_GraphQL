@@ -1,2 +1,1 @@
-import _ from 'lodash';
-export { default } from './apollo-client';
+export { default } from './ddp-link';

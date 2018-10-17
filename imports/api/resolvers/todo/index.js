@@ -1,7 +1,7 @@
 import Todo from './todo.collection';
 import { pubsub } from './todo.pubsub';
 
-const HelloResolvers = {
+const TodoResolvers = {
   Query: {
     Todo: (_, { id }) => Todo.findOne(id),
     TodoList: () => Todo.find({}).fetch(),
@@ -12,7 +12,12 @@ const HelloResolvers = {
         ...args,
         createdAt: Date.now(),
       });
-      if (_id) return Todo.findOne(_id);
+      if (_id) {
+        const newTodo = Todo.findOne(_id);
+        console.log(newTodo);
+        pubsub.publish('todoAdded', newTodo);
+        return newTodo;
+      }
       return null;
     },
     removeTodo: (_, { id }) => {
@@ -41,4 +46,4 @@ const HelloResolvers = {
   }
 };
 
-export default HelloResolvers;
+export default TodoResolvers;
