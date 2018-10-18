@@ -3,10 +3,16 @@ import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import TodoItem from './TodoItem';
 
-const DELETE_TODO = gql`
-  mutation DeleteTodo($id: String!) {
-    removeTodo(
+const UPDATE_TODO = gql`
+  mutation updateTodo(
+      $id: String!
+      $title: String!
+      $content: String
+    ) {
+    updateTodo(
       id: $id
+      title: $title
+      content: $content
     ) {
       _id
       title
@@ -18,14 +24,13 @@ const DELETE_TODO = gql`
 
 const TodoItemMutation = (props) => (
   <Mutation
-    mutation={DELETE_TODO}
+    mutation={UPDATE_TODO}
     refetchQueries={['TodoList']}
   >
-    {(deleteTodo, { data }) => (
+    {(updateTodo) => (
       <TodoItem
         {...props}
-        deleteTodo={deleteTodo}
-        data={data}
+        updateTodo={updateTodo}
       />
     )}
   </Mutation>

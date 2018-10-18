@@ -1,34 +1,71 @@
-import React from 'react';
-import m from 'moment';
+import React, { PureComponent } from 'react';
+import TodoItemFooter from './TodoItem.footer';
 
-const TodoItem = (props) => {
-  const { deleteTodo, title, content, createdAt, id } = props;
-  return (
-    <div className='todo-item'>
-      <div className='item-title'>
-        {title}
+class TodoItem extends PureComponent {
+
+  state = {
+    title: '',
+    content: '',
+    error: '',
+  }
+
+  componentDidMount() {
+    const { title, content } = this.props;
+    this.setState({
+      title,
+      content
+    });
+  }
+
+  handleInput = (field, value) => {
+    this.setState((preState) => ({
+      [field]: value,
+    }));
+  }
+
+  handleUpdate = () => {
+    const { updateTodo, id } = this.props;
+    const { title, content } = this.state;
+    updateTodo({
+      variables: {
+        id,
+        title,
+        content
+      }
+    }).catch(err => {
+      this.setState({
+        error: err.message
+      })
+    });
+  }
+
+  render() {
+    const { createdAt, id } = this.props;
+    const { title, content, error } = this.state;
+
+    return (
+      <div className='todo-item'>
+        <input
+          type='text'
+          className='item-title'
+          value={title}
+          onChange={({target}) => this.handleInput('title', target.value)}
+          onBlur={this.handleUpdate}
+        />
+        <textarea
+          className="item-content"
+          placeholder="Nothing here to see"
+          value={content}
+          onChange={({target}) => this.handleInput('content', target.value)}
+          onBlur={this.handleUpdate}
+        />
+        <TodoItemFooter
+          id={id}
+          createdAt={createdAt}
+          error={error}
+        />
       </div>
-      <div className='item-content'>
-        {content}
-      </div>
-      <div className='item-footer'>
-        <div className='item-date'>
-          {m(createdAt).format('ddd, DD MMM YYYY')}
-        </div>
-        <div
-          className='item-delete'
-          onClick={() => {
-            deleteTodo({
-              variables: {
-                id,
-              }
-            });
-          }}
-        >
-          Delete
-        </div>
-      </div>
-    </div>
-  );
+    );
+  }
 }
 export default TodoItem;
